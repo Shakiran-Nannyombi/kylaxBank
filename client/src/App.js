@@ -4,6 +4,7 @@ import LandingPage from './components/LandingPage';
 import LoanApplication from './components/LoanApplication';
 import ApplicationTracker from './components/ApplicationTracker';
 import LoanOfficerDashboard from './components/LoanOfficerDashboard';
+import LoginPage from './components/LoginPage';
 import { PersonalLoans, BusinessLoans, AutoLoans } from './components/info/ProductPages';
 import { AboutUs, Careers, Contact } from './components/info/CompanyPages';
 import { PrivacyPolicy, TermsOfService, Security } from './components/info/LegalPages';
@@ -18,6 +19,7 @@ function App() {
           <Route path="/apply" element={<LoanApplication />} />
           <Route path="/track/:id" element={<ApplicationTracker />} />
           <Route path="/dashboard" element={<LoanOfficerDashboard />} />
+          <Route path="/login" element={<LoginPage />} />
 
           {/* Product Routes */}
           <Route path="/products/personal" element={<PersonalLoans />} />

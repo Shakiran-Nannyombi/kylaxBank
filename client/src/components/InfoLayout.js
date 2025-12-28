@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 const InfoLayout = ({ children, title, subtitle }) => {
     return (
@@ -21,12 +22,7 @@ const InfoLayout = ({ children, title, subtitle }) => {
                 </div>
             </main>
 
-            {/* Simple Footer */}
-            <footer className="bg-white border-t py-8">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
-                    <p>© 2025 Kylax Bank. All rights reserved. Revolutionizing lending with AI-powered credit assessments.</p>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 };

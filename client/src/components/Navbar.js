@@ -76,7 +76,7 @@ const Navbar = () => {
                         <div className="h-6 w-px bg-gray-200 mx-2"></div>
 
                         <button
-                            onClick={() => navigate('/dashboard')}
+                            onClick={() => navigate('/login')}
                             className="text-sm text-gray-500 hover:text-gray-900 font-medium"
                         >
                             Log In
@@ -119,10 +119,10 @@ const Navbar = () => {
                     <div className="pt-4 border-t space-y-4">
                         <Link to="/legal/security" className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-blue-50 rounded-lg">Security</Link>
                         <button
-                            onClick={() => navigate('/dashboard')}
+                            onClick={() => navigate('/login')}
                             className="w-full text-center py-3 text-base font-medium text-gray-600 border rounded-lg"
                         >
-                            Loan Officer Login
+                            Login
                         </button>
                         <button
                             onClick={() => navigate('/apply')}

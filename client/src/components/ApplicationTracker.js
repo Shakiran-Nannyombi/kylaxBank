@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import { 
+import {
   ArrowLeft,
   CheckCircle,
   Clock,
@@ -14,6 +14,7 @@ import {
   ThumbsDown,
   Brain
 } from 'lucide-react';
+import Footer from './Footer';
 
 const ApplicationTracker = () => {
   const { id } = useParams();
@@ -22,7 +23,7 @@ const ApplicationTracker = () => {
 
   useEffect(() => {
     loadApplication();
-    
+
     // WebSocket connection for real-time updates
     const ws = new WebSocket(`ws://localhost:3001`);
     ws.onmessage = (event) => {
@@ -33,7 +34,7 @@ const ApplicationTracker = () => {
         }
       }
     };
-    
+
     return () => ws.close();
   }, [id]);
 
@@ -50,7 +51,7 @@ const ApplicationTracker = () => {
 
   const getStepStatus = (stepName) => {
     if (!application) return 'pending';
-    
+
     const steps = [
       'Application Submitted',
       'Verifying Traditional Credit',
@@ -58,10 +59,10 @@ const ApplicationTracker = () => {
       'AI Holisti-Score™ Assessment',
       'Final Decision'
     ];
-    
+
     const currentIndex = steps.indexOf(application.progress);
     const stepIndex = steps.indexOf(stepName);
-    
+
     if (stepIndex < currentIndex) return 'completed';
     if (stepIndex === currentIndex) return 'current';
     return 'pending';
@@ -69,7 +70,7 @@ const ApplicationTracker = () => {
 
   const getStatusMessage = () => {
     if (!application) return '';
-    
+
     switch (application.progress) {
       case 'Verifying Traditional Credit':
         return 'We\'re pulling your credit report and analyzing your traditional credit data.';
@@ -78,7 +79,7 @@ const ApplicationTracker = () => {
       case 'AI Holisti-Score™ Assessment':
         return 'Our AI is now analyzing thousands of data points—from your credit history to your cash flow—to identify patterns and provide the most accurate decision possible. This is where the magic happens!';
       case 'Final Decision':
-        return application.status === 'approved' 
+        return application.status === 'approved'
           ? 'Congratulations! Your loan application has been approved.'
           : 'We\'re sorry, but your loan application has been denied.';
       default:
@@ -122,7 +123,7 @@ const ApplicationTracker = () => {
               </div>
               <span className="text-2xl font-bold text-gray-900">Kylax Bank</span>
             </Link>
-            <Link 
+            <Link
               to="/"
               className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors"
             >
@@ -145,33 +146,31 @@ const ApplicationTracker = () => {
                 Loan Amount: ${application.loanAmount?.toLocaleString()}
               </p>
             </div>
-            <div className={`px-4 py-2 rounded-full text-sm font-semibold ${
-              application.status === 'approved' 
+            <div className={`px-4 py-2 rounded-full text-sm font-semibold ${application.status === 'approved'
                 ? 'bg-green-100 text-green-800'
                 : application.status === 'denied'
-                ? 'bg-red-100 text-red-800'
-                : 'bg-yellow-100 text-yellow-800'
-            }`}>
+                  ? 'bg-red-100 text-red-800'
+                  : 'bg-yellow-100 text-yellow-800'
+              }`}>
               {application.status === 'approved' ? 'Approved' :
-               application.status === 'denied' ? 'Denied' : 'Processing'}
+                application.status === 'denied' ? 'Denied' : 'Processing'}
             </div>
           </div>
 
           {/* Progress Tracker */}
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-gray-900">Application Progress</h2>
-            
+
             {['Application Submitted', 'Verifying Traditional Credit', 'Analyzing Financial Snapshot', 'AI Holisti-Score™ Assessment', 'Final Decision'].map((step, index) => {
               const status = getStepStatus(step);
               return (
                 <div key={step} className="flex items-center space-x-4">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                    status === 'completed' 
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center ${status === 'completed'
                       ? 'bg-green-500 text-white'
                       : status === 'current'
-                      ? 'bg-blue-500 text-white'
-                      : 'bg-gray-300 text-gray-500'
-                  }`}>
+                        ? 'bg-blue-500 text-white'
+                        : 'bg-gray-300 text-gray-500'
+                    }`}>
                     {status === 'completed' ? (
                       <CheckCircle className="w-5 h-5" />
                     ) : status === 'current' ? (
@@ -181,9 +180,8 @@ const ApplicationTracker = () => {
                     )}
                   </div>
                   <div className="flex-1">
-                    <h3 className={`font-medium ${
-                      status === 'current' ? 'text-blue-600' : 'text-gray-900'
-                    }`}>
+                    <h3 className={`font-medium ${status === 'current' ? 'text-blue-600' : 'text-gray-900'
+                      }`}>
                       {step}
                     </h3>
                     {status === 'current' && (
@@ -216,22 +214,20 @@ const ApplicationTracker = () => {
                 </div>
                 <p className="text-gray-600">Holisti-Score™</p>
               </div>
-              
+
               <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl">
-                <div className={`text-2xl font-bold mb-2 ${
-                  application.aiScore.riskLevel === 'Low' ? 'text-green-600' :
-                  application.aiScore.riskLevel === 'Medium' ? 'text-yellow-600' :
-                  'text-red-600'
-                }`}>
+                <div className={`text-2xl font-bold mb-2 ${application.aiScore.riskLevel === 'Low' ? 'text-green-600' :
+                    application.aiScore.riskLevel === 'Medium' ? 'text-yellow-600' :
+                      'text-red-600'
+                  }`}>
                   {application.aiScore.riskLevel}
                 </div>
                 <p className="text-gray-600">Risk Level</p>
               </div>
-              
+
               <div className="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl">
-                <div className={`text-xl font-bold mb-2 flex items-center justify-center space-x-2 ${
-                  application.aiScore.recommendation === 'Approve' ? 'text-green-600' : 'text-red-600'
-                }`}>
+                <div className={`text-xl font-bold mb-2 flex items-center justify-center space-x-2 ${application.aiScore.recommendation === 'Approve' ? 'text-green-600' : 'text-red-600'
+                  }`}>
                   {application.aiScore.recommendation === 'Approve' ? (
                     <ThumbsUp className="w-6 h-6" />
                   ) : (
@@ -282,30 +278,27 @@ const ApplicationTracker = () => {
 
         {/* Final Decision */}
         {application.status !== 'processing' && (
-          <div className={`rounded-xl shadow-lg p-8 ${
-            application.status === 'approved' 
+          <div className={`rounded-xl shadow-lg p-8 ${application.status === 'approved'
               ? 'bg-green-50 border border-green-200'
               : 'bg-red-50 border border-red-200'
-          }`}>
+            }`}>
             <div className="text-center">
               {application.status === 'approved' ? (
                 <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
               ) : (
                 <AlertCircle className="w-16 h-16 text-red-600 mx-auto mb-4" />
               )}
-              
-              <h2 className={`text-3xl font-bold mb-4 ${
-                application.status === 'approved' ? 'text-green-900' : 'text-red-900'
-              }`}>
-                {application.status === 'approved' 
+
+              <h2 className={`text-3xl font-bold mb-4 ${application.status === 'approved' ? 'text-green-900' : 'text-red-900'
+                }`}>
+                {application.status === 'approved'
                   ? 'Congratulations! Your loan is approved!'
                   : 'Application Decision'}
               </h2>
-              
-              <p className={`text-lg mb-6 ${
-                application.status === 'approved' ? 'text-green-700' : 'text-red-700'
-              }`}>
-                {application.status === 'approved' 
+
+              <p className={`text-lg mb-6 ${application.status === 'approved' ? 'text-green-700' : 'text-red-700'
+                }`}>
+                {application.status === 'approved'
                   ? `You've been approved for a loan of $${application.loanAmount?.toLocaleString()}. A loan specialist will contact you within 24 hours to finalize the details.`
                   : 'While we weren\'t able to approve your application at this time, we encourage you to work on the areas for improvement identified by our AI and reapply in the future.'
                 }
@@ -320,6 +313,7 @@ const ApplicationTracker = () => {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   );
 };

@@ -12,6 +12,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 const LoanApplication = () => {
   const navigate = useNavigate();
@@ -39,13 +40,19 @@ const LoanApplication = () => {
 
     // Additional Info
     monthlyRent: '',
-    bankConnected: false
+    bankConnected: false,
+
+    // Legal & Consent
+    consentAIAssessment: false,
+    agreeToTerms: false,
+    consentDataPrivacy: false
   });
 
   const steps = [
     { number: 1, title: 'Personal & Loan Information', icon: User },
     { number: 2, title: 'Income & Employment', icon: DollarSign },
-    { number: 3, title: 'Financial Snapshot', icon: LinkIcon }
+    { number: 3, title: 'Financial Snapshot', icon: LinkIcon },
+    { number: 4, title: 'Consent & Legal', icon: Shield }
   ];
 
   const handleInputChange = (e) => {
@@ -57,7 +64,7 @@ const LoanApplication = () => {
   };
 
   const nextStep = () => {
-    if (currentStep < 3) {
+    if (currentStep < 4) {
       setCurrentStep(currentStep + 1);
     }
   };
@@ -422,6 +429,97 @@ const LoanApplication = () => {
             </div>
           )}
 
+          {/* Step 4: Consent & Legal */}
+          {currentStep === 4 && (
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Consent & Legal Acknowledgement
+              </h2>
+              <p className="text-gray-600 mb-8">
+                Please review the follow terms and provide your consent to proceed with the AI-powered credit assessment.
+              </p>
+
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
+                    Terms & Conditions
+                  </label>
+                  <div className="h-48 overflow-y-scroll bg-gray-50 p-4 rounded-xl border-2 border-gray-100 text-sm text-gray-600 space-y-4">
+                    <p className="font-bold text-gray-900">1. AI-Powered Credit Assessment</p>
+                    <p>
+                      By applying for a loan with Kylax Bank, you acknowledge and agree that your creditworthiness will be assessed using our proprietary AI Holisti-Score™ technology. This system analyzes both traditional credit data and alternative financial insights, including bank transaction history if provided.
+                    </p>
+                    <p className="font-bold text-gray-900">2. Data Privacy & Security</p>
+                    <p>
+                      We take your privacy seriously. All data provided is encrypted using industry-standard protocols. Your financial information is used solely for the purpose of credit assessment and loan servicing. We do not sell your personal data to third parties.
+                    </p>
+                    <p className="font-bold text-gray-900">3. Accuracy of Information</p>
+                    <p>
+                      You certify that all information provided in this application is true, complete, and accurate to the best of your knowledge. Providing false information may result in the denial of your application or legal action.
+                    </p>
+                    <p className="font-bold text-gray-900">4. Electronic Signature</p>
+                    <p>
+                      Checking the boxes below constitutes your electronic signature and agreement to these terms.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-4 pt-4">
+                  <label className="flex items-start bg-white p-4 rounded-xl border-2 border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors">
+                    <div className="flex items-center h-5">
+                      <input
+                        type="checkbox"
+                        name="agreeToTerms"
+                        checked={formData.agreeToTerms}
+                        onChange={handleInputChange}
+                        className="h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                        required
+                      />
+                    </div>
+                    <div className="ml-4 text-sm">
+                      <span className="font-bold text-gray-900">I agree to the Terms & Conditions</span>
+                      <p className="text-gray-500">I have read and understood the loan agreement terms.</p>
+                    </div>
+                  </label>
+
+                  <label className="flex items-start bg-white p-4 rounded-xl border-2 border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors">
+                    <div className="flex items-center h-5">
+                      <input
+                        type="checkbox"
+                        name="consentAIAssessment"
+                        checked={formData.consentAIAssessment}
+                        onChange={handleInputChange}
+                        className="h-5 w-5 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
+                        required
+                      />
+                    </div>
+                    <div className="ml-4 text-sm">
+                      <span className="font-bold text-gray-900">Consent to AI Holisti-Score™ Assessment</span>
+                      <p className="text-gray-500">I authorize Kylax Bank to use AI for my credit evaluation.</p>
+                    </div>
+                  </label>
+
+                  <label className="flex items-start bg-white p-4 rounded-xl border-2 border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors">
+                    <div className="flex items-center h-5">
+                      <input
+                        type="checkbox"
+                        name="consentDataPrivacy"
+                        checked={formData.consentDataPrivacy}
+                        onChange={handleInputChange}
+                        className="h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                        required
+                      />
+                    </div>
+                    <div className="ml-4 text-sm">
+                      <span className="font-bold text-gray-900">Data Privacy Acknowledgment</span>
+                      <p className="text-gray-500">I consent to the collection and processing of my personal data.</p>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Navigation Buttons */}
           <div className="flex justify-between mt-8 pt-6 border-t border-gray-200">
             <button
@@ -433,7 +531,7 @@ const LoanApplication = () => {
               <span>Previous</span>
             </button>
 
-            {currentStep < 3 ? (
+            {currentStep < 4 ? (
               <button
                 onClick={nextStep}
                 className="flex items-center space-x-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -444,16 +542,17 @@ const LoanApplication = () => {
             ) : (
               <button
                 onClick={submitApplication}
-                disabled={loading}
-                className="flex items-center space-x-2 px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50"
+                disabled={loading || !formData.agreeToTerms || !formData.consentAIAssessment || !formData.consentDataPrivacy}
+                className="flex items-center space-x-2 px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:grayscale"
               >
-                <span>{loading ? 'Submitting...' : 'Submit Application'}</span>
+                <span>{loading ? 'Submitting...' : 'Complete & Submit'}</span>
                 <CheckCircle className="w-4 h-4" />
               </button>
             )}
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };
