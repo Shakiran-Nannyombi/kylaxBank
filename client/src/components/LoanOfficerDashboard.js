@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {
-  ArrowLeft,
   Users,
   TrendingUp,
   TrendingDown,
@@ -15,7 +13,7 @@ import {
   ThumbsDown,
   RefreshCw
 } from 'lucide-react';
-import logo from '../assets/logo.png';
+import Navbar from './Navbar';
 
 const LoanOfficerDashboard = () => {
   const [applications, setApplications] = useState([]);
@@ -100,32 +98,10 @@ const LoanOfficerDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center p-1 border shadow-sm">
-                <img src={logo} alt="Kylax Bank Logo" className="w-8 h-8 object-contain" />
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">Kylax Bank</h1>
-                <p className="text-sm text-gray-600">Loan Officer Dashboard</p>
-              </div>
-            </div>
-            <Link
-              to="/"
-              className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back to Home</span>
-            </Link>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <Navbar />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Applications List */}
           <div className="lg:col-span-2">
@@ -295,7 +271,7 @@ const LoanOfficerDashboard = () => {
           {/* Application Detail Panel */}
           <div className="lg:col-span-1">
             {selectedApplication ? (
-              <div className="bg-white rounded-xl shadow-sm p-6 sticky top-8">
+              <div className="bg-white rounded-xl shadow-sm p-6 sticky top-8 border border-gray-100">
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-lg font-semibold text-gray-900">
                     Application Details
@@ -413,18 +389,16 @@ const LoanOfficerDashboard = () => {
                 )}
               </div>
             ) : (
-              <div className="bg-white rounded-xl shadow-sm p-6 text-center text-gray-500">
+              <div className="bg-white rounded-xl shadow-sm p-6 text-center text-gray-500 border border-gray-100">
                 <Eye className="w-12 h-12 mx-auto mb-4 text-gray-300" />
                 <p>Select an application to view details</p>
               </div>
             )}
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 };
 
 export default LoanOfficerDashboard;
-
-

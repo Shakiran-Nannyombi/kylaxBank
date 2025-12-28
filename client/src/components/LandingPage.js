@@ -1,37 +1,14 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { TrendingUp, Shield, Zap, CheckCircle, ArrowRight } from 'lucide-react';
+import Navbar from './Navbar';
 import logo from '../assets/logo.png';
 
 const LandingPage = () => {
   const navigate = useNavigate();
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="bg-white p-1 rounded-lg">
-                <img src={logo} alt="Kylax Bank Logo" className="h-10 w-10 object-contain" />
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Kylax Bank
-                </h1>
-                <p className="text-xs text-gray-500">AI-Powered Lending</p>
-              </div>
-            </div>
-            <button
-              onClick={() => navigate('/dashboard')}
-              className="text-sm text-gray-600 hover:text-gray-900 font-medium"
-            >
-              Loan Officer Login
-            </button>
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">

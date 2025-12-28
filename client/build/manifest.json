@@ -1,17 +1,15 @@
 {
-  "short_name": "NVM Web",
-  "name": "NVM Web Interface",
+  "short_name": "Kylax Bank",
+  "name": "Kylax Bank - AI-Powered Loan Platform",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "logo_favicon.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/png"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#4F46E5",
   "background_color": "#ffffff"
 }
-
-
