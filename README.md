@@ -1,18 +1,25 @@
-# Kylax Bank AI-Powered Loan Platform
+# Kylax Bank - AI-Native Banking Platform
 
-A revolutionary MVP for AI-powered loan applications that combines traditional credit data with alternative financial insights to provide fairer, faster loan decisions.
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://kylax-bank.vercel.app/)
 
-## Key Features
+**Live Demo:** [https://kylax-bank.vercel.app/](https://kylax-bank.vercel.app/)
 
-### AI Holisti-Score™ System
-- Proprietary AI scoring analyzing thousands of data points
-- Combines traditional credit data with alternative financial insights
-- Explainable AI with transparent decision factors and risk recommendations
+Kylax Bank is a next-generation banking interface powered by AI, featuring a modern, responsive design, real-time application tracking, and AI-driven credit assessment visualizations.
 
-### Real-Time Processing
-- Live application status tracking via WebSockets
-- Dynamic progress indicators and instant decision notifications
-- Secure bank account connection for financial snapshots
+## ✨ Features
+
+- **AI-Driven UI**: Animated backgrounds, glassmorphism effects, and dynamic scroll animations.
+- **Visual Application Tracker**: Real-time status updates with an AI "Holisti-Score" visualization.
+- **Role-Based Portals**: Distinct dashboards for Loan Applicants and Loan Officers.
+- **Data Visualization**: Interactive charts and progress indicators for financial data.
+- **Responsive Design**: Fully optimized for mobile, tablet, and desktop experiences.
+
+## 🚀 Deployment
+
+The project is deployed on Vercel.
+
+- **Frontend**: React (CRA)
+- **Deployment**: Vercel SPA Configuration
 
 ## Quick Start
 
