@@ -3,12 +3,12 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import logo from '../assets/logo.png';
 
-const Navbar = ({ className = "" }) => {
+const Navbar = ({ className = "", isDark: customIsDark }) => {
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
 
-    const isDark = className.includes('bg-transparent') || className.includes('text-white');
+    const isDark = customIsDark !== undefined ? customIsDark : (className.includes('bg-transparent') || className.includes('text-white'));
 
     return (
         <header className={`sticky top-0 z-50 transition-all duration-300 ${className || 'bg-white shadow-md'}`}>

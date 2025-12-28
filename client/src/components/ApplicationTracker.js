@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
+import config from '../config';
 import {
   ArrowLeft,
   CheckCircle,
@@ -23,11 +24,21 @@ const ApplicationTracker = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const loadApplication = async () => {
+      try {
+        const response = await axios.get(`/api/applications/${id}`);
+        setApplication(response.data);
+      } catch (error) {
+        console.error('Error loading application:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     loadApplication();
 
     // WebSocket connection for real-time updates
-    const ws = new WebSocket(`ws://localhost:3001`);
+    const ws = new WebSocket(config.WS_URL);
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
       if (data.type === 'application_update' || data.type === 'application_complete') {
@@ -39,17 +50,6 @@ const ApplicationTracker = () => {
 
     return () => ws.close();
   }, [id]);
-
-  const loadApplication = async () => {
-    try {
-      const response = await axios.get(`/api/applications/${id}`);
-      setApplication(response.data);
-    } catch (error) {
-      console.error('Error loading application:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   if (loading) {
     return (

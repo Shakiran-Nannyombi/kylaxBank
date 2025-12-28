@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import config from '../config';
 import {
   Users,
   TrendingUp,
@@ -25,7 +26,7 @@ const LoanOfficerDashboard = () => {
     loadApplications();
 
     // WebSocket connection for real-time updates
-    const ws = new WebSocket(`ws://localhost:3001`);
+    const ws = new WebSocket(config.WS_URL);
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
       if (data.type === 'application_update' || data.type === 'application_complete') {
