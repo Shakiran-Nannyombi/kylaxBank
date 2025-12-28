@@ -24,37 +24,41 @@ const LoginPage = () => {
             title="Welcome Back"
             subtitle="Select your portal to continue to your dashboard"
         >
-            <div className="space-y-4">
+            <div className="grid gap-4">
                 <button
                     onClick={() => setRole('applicant')}
-                    className="w-full group flex items-center justify-between p-4 bg-white border-2 border-gray-100 rounded-2xl hover:border-blue-500 hover:bg-blue-50/50 transition-all text-left"
+                    className="w-full group flex items-center justify-between p-6 bg-white border-2 border-gray-100 rounded-3xl hover:border-blue-500 hover:bg-blue-50/30 transition-all duration-300 text-left shadow-sm hover:shadow-md"
                 >
-                    <div className="flex items-center space-x-4">
-                        <div className="p-3 bg-blue-100 text-blue-600 rounded-xl group-hover:scale-110 transition-transform">
-                            <User className="w-6 h-6" />
+                    <div className="flex items-center space-x-5">
+                        <div className="p-4 bg-blue-100 text-blue-600 rounded-2xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                            <User className="w-7 h-7" />
                         </div>
                         <div>
-                            <div className="font-bold text-gray-900">Applicant Portal</div>
+                            <div className="font-bold text-xl text-gray-900 mb-0.5">Applicant Portal</div>
                             <div className="text-sm text-gray-500">Track and manage your loans</div>
                         </div>
                     </div>
-                    <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-blue-500 transition-colors" />
+                    <div className="p-2 rounded-full group-hover:bg-blue-100 transition-colors">
+                        <ArrowRight className="w-6 h-6 text-gray-300 group-hover:text-blue-500 transition-colors" />
+                    </div>
                 </button>
 
                 <button
                     onClick={() => setRole('officer')}
-                    className="w-full group flex items-center justify-between p-4 bg-white border-2 border-gray-100 rounded-2xl hover:border-purple-500 hover:bg-purple-50/50 transition-all text-left"
+                    className="w-full group flex items-center justify-between p-6 bg-white border-2 border-gray-100 rounded-3xl hover:border-purple-500 hover:bg-purple-50/30 transition-all duration-300 text-left shadow-sm hover:shadow-md"
                 >
-                    <div className="flex items-center space-x-4">
-                        <div className="p-3 bg-purple-100 text-purple-600 rounded-xl group-hover:scale-110 transition-transform">
-                            <ShieldCheck className="w-6 h-6" />
+                    <div className="flex items-center space-x-5">
+                        <div className="p-4 bg-purple-100 text-purple-600 rounded-2xl group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300">
+                            <ShieldCheck className="w-7 h-7" />
                         </div>
                         <div>
-                            <div className="font-bold text-gray-900">Officer Dashboard</div>
+                            <div className="font-bold text-xl text-gray-900 mb-0.5">Officer Dashboard</div>
                             <div className="text-sm text-gray-500">Review and process applications</div>
                         </div>
                     </div>
-                    <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-purple-500 transition-colors" />
+                    <div className="p-2 rounded-full group-hover:bg-purple-100 transition-colors">
+                        <ArrowRight className="w-6 h-6 text-gray-300 group-hover:text-purple-500 transition-colors" />
+                    </div>
                 </button>
             </div>
 
