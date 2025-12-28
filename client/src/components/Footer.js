@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Shield, Lock, FileCheck, Server } from 'lucide-react';
 import logo from '../assets/logo.png';
 
 const Footer = () => {
@@ -43,8 +44,28 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="border-t border-gray-800 pt-8 text-center text-sm">
-                    <p>© 2025 Kylax Bank. All rights reserved. Revolutionizing lending with AI-powered credit assessments.</p>
+                <div className="border-t border-gray-800 pt-8 mt-8">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+                        <div className="flex flex-wrap justify-center gap-6">
+                            <div className="flex items-center space-x-2 text-gray-500 opacity-70 hover:opacity-100 transition-opacity">
+                                <Shield className="w-5 h-5" />
+                                <span className="text-xs font-semibold tracking-wider">SOC2 TYPE II</span>
+                            </div>
+                            <div className="flex items-center space-x-2 text-gray-500 opacity-70 hover:opacity-100 transition-opacity">
+                                <Lock className="w-5 h-5" />
+                                <span className="text-xs font-semibold tracking-wider">256-BIT SSL</span>
+                            </div>
+                            <div className="flex items-center space-x-2 text-gray-500 opacity-70 hover:opacity-100 transition-opacity">
+                                <FileCheck className="w-5 h-5" />
+                                <span className="text-xs font-semibold tracking-wider">ISO 27001</span>
+                            </div>
+                            <div className="flex items-center space-x-2 text-gray-500 opacity-70 hover:opacity-100 transition-opacity">
+                                <Server className="w-5 h-5" />
+                                <span className="text-xs font-semibold tracking-wider">GDPR READY</span>
+                            </div>
+                        </div>
+                        <p className="text-center text-sm">© 2025 Kylax Bank. All rights reserved.</p>
+                    </div>
                 </div>
             </div>
         </footer>

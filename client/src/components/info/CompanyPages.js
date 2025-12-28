@@ -53,33 +53,33 @@ export const Careers = () => (
             </p>
 
             <div className="space-y-6 mb-12">
-                <div className="p-6 bg-white border border-gray-200 rounded-xl hover:border-blue-500 transition-colors shadow-sm group cursor-pointer">
+                <a href="mailto:careers@kylaxbank.ai?subject=Application for Senior AI Research Engineer" className="block p-6 bg-white border border-gray-200 rounded-xl hover:border-blue-500 transition-colors shadow-sm group cursor-pointer no-underline">
                     <div className="flex justify-between items-center">
                         <div>
-                            <h3 className="font-bold text-xl group-hover:text-blue-600 transition-colors">Senior AI Research Engineer</h3>
+                            <h3 className="font-bold text-xl group-hover:text-blue-600 transition-colors text-gray-900">Senior AI Research Engineer</h3>
                             <p className="text-sm text-gray-500">Remote / Full-time</p>
                         </div>
-                        <div className="text-blue-600 font-bold">Apply →</div>
+                        <div className="text-blue-600 font-bold group-hover:underline">Apply →</div>
                     </div>
-                </div>
-                <div className="p-6 bg-white border border-gray-200 rounded-xl hover:border-blue-500 transition-colors shadow-sm group cursor-pointer">
+                </a>
+                <a href="mailto:careers@kylaxbank.ai?subject=Application for Frontend Lead" className="block p-6 bg-white border border-gray-200 rounded-xl hover:border-blue-500 transition-colors shadow-sm group cursor-pointer no-underline">
                     <div className="flex justify-between items-center">
                         <div>
-                            <h3 className="font-bold text-xl group-hover:text-blue-600 transition-colors">Frontend Lead (React)</h3>
+                            <h3 className="font-bold text-xl group-hover:text-blue-600 transition-colors text-gray-900">Frontend Lead (React)</h3>
                             <p className="text-sm text-gray-500">London, UK / Hybrid</p>
                         </div>
-                        <div className="text-blue-600 font-bold">Apply →</div>
+                        <div className="text-blue-600 font-bold group-hover:underline">Apply →</div>
                     </div>
-                </div>
-                <div className="p-6 bg-white border border-gray-200 rounded-xl hover:border-blue-500 transition-colors shadow-sm group cursor-pointer">
+                </a>
+                <a href="mailto:careers@kylaxbank.ai?subject=Application for Compliance & Risk Officer" className="block p-6 bg-white border border-gray-200 rounded-xl hover:border-blue-500 transition-colors shadow-sm group cursor-pointer no-underline">
                     <div className="flex justify-between items-center">
                         <div>
-                            <h3 className="font-bold text-xl group-hover:text-blue-600 transition-colors">Compliance & Risk Officer</h3>
+                            <h3 className="font-bold text-xl group-hover:text-blue-600 transition-colors text-gray-900">Compliance & Risk Officer</h3>
                             <p className="text-sm text-gray-500">New York, US / Full-time</p>
                         </div>
-                        <div className="text-blue-600 font-bold">Apply →</div>
+                        <div className="text-blue-600 font-bold group-hover:underline">Apply →</div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </InfoLayout>
