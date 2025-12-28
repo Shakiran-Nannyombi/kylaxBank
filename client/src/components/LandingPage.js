@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { TrendingUp, Shield, Zap, CheckCircle, ArrowRight } from 'lucide-react';
 import logo from '../assets/logo.png';
 
@@ -203,25 +203,25 @@ const LandingPage = () => {
             <div>
               <h5 className="text-white font-semibold mb-3">Products</h5>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white">Personal Loans</a></li>
-                <li><a href="#" className="hover:text-white">Business Loans</a></li>
-                <li><a href="#" className="hover:text-white">Auto Loans</a></li>
+                <li><Link to="/products/personal" className="hover:text-white transition-colors">Personal Loans</Link></li>
+                <li><Link to="/products/business" className="hover:text-white transition-colors">Business Loans</Link></li>
+                <li><Link to="/products/auto" className="hover:text-white transition-colors">Auto Loans</Link></li>
               </ul>
             </div>
             <div>
               <h5 className="text-white font-semibold mb-3">Company</h5>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white">About Us</a></li>
-                <li><a href="#" className="hover:text-white">Careers</a></li>
-                <li><a href="#" className="hover:text-white">Contact</a></li>
+                <li><Link to="/company/about" className="hover:text-white transition-colors">About Us</Link></li>
+                <li><Link to="/company/careers" className="hover:text-white transition-colors">Careers</Link></li>
+                <li><Link to="/company/contact" className="hover:text-white transition-colors">Contact</Link></li>
               </ul>
             </div>
             <div>
               <h5 className="text-white font-semibold mb-3">Legal</h5>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-white">Security</a></li>
+                <li><Link to="/legal/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li><Link to="/legal/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
+                <li><Link to="/legal/security" className="hover:text-white transition-colors">Security</Link></li>
               </ul>
             </div>
           </div>
