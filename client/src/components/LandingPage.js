@@ -12,6 +12,7 @@ import {
   BarChart3
 } from 'lucide-react';
 import BackgroundPaths from './BackgroundPaths';
+import ScrollReveal from './ScrollReveal';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import customer1 from '../assets/customer_profile_1_1766910041142.png';
@@ -28,105 +29,115 @@ const LandingPage = () => {
         onCTA={() => navigate('/apply')}
       />
 
-      {/* Trust Stats */}
-      <section className="bg-white/50 backdrop-blur-sm border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 py-12 lg:grid lg:grid-cols-4 gap-8 text-center">
-          <div>
-            <div className="text-4xl font-bold text-blue-600 mb-1">$2.4B+</div>
-            <div className="text-sm font-medium text-gray-500 uppercase tracking-widest">Loans Disbursed</div>
+      <ScrollReveal>
+        {/* Trust Stats */}
+        <section className="bg-white/50 backdrop-blur-sm border-y border-gray-100">
+          <div className="max-w-7xl mx-auto px-4 py-12 lg:grid lg:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-4xl font-bold text-blue-600 mb-1">$2.4B+</div>
+              <div className="text-sm font-medium text-gray-500 uppercase tracking-widest">Loans Disbursed</div>
+            </div>
+            <hr className="lg:hidden my-6 border-gray-100" />
+            <div>
+              <div className="text-4xl font-bold text-purple-600 mb-1">98.2%</div>
+              <div className="text-sm font-medium text-gray-500 uppercase tracking-widest">Approval Speed</div>
+            </div>
+            <hr className="lg:hidden my-6 border-gray-100" />
+            <div>
+              <div className="text-4xl font-bold text-indigo-600 mb-1"><Star className="inline h-8 w-8 text-yellow-500 mr-2 mb-1" />4.9/5</div>
+              <div className="text-sm font-medium text-gray-500 uppercase tracking-widest">User Rating</div>
+            </div>
+            <hr className="lg:hidden my-6 border-gray-100" />
+            <div>
+              <div className="text-4xl font-bold text-blue-600 mb-1">256-bit</div>
+              <div className="text-sm font-medium text-gray-500 uppercase tracking-widest">Military Security</div>
+            </div>
           </div>
-          <hr className="lg:hidden my-6 border-gray-100" />
-          <div>
-            <div className="text-4xl font-bold text-purple-600 mb-1">98.2%</div>
-            <div className="text-sm font-medium text-gray-500 uppercase tracking-widest">Approval Speed</div>
-          </div>
-          <hr className="lg:hidden my-6 border-gray-100" />
-          <div>
-            <div className="text-4xl font-bold text-indigo-600 mb-1"><Star className="inline h-8 w-8 text-yellow-500 mr-2 mb-1" />4.9/5</div>
-            <div className="text-sm font-medium text-gray-500 uppercase tracking-widest">User Rating</div>
-          </div>
-          <hr className="lg:hidden my-6 border-gray-100" />
-          <div>
-            <div className="text-4xl font-bold text-blue-600 mb-1">256-bit</div>
-            <div className="text-sm font-medium text-gray-500 uppercase tracking-widest">Military Security</div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Features Section */}
       <section id="features" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-        <div className="text-center mb-16">
-          <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-            Intelligent Lending
-          </h3>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Our AI-powered platform revolutionizes the lending experience by looking at the whole person, not just a score.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+              Intelligent Lending
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Our AI-powered platform revolutionizes the lending experience by looking at the whole person, not just a score.
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-3 gap-8">
           {/* Feature 1 */}
-          <div className="group bg-white p-10 rounded-[2.5rem] shadow-xl shadow-gray-100 hover:shadow-2xl hover:shadow-blue-100 transition-all duration-300 border-2 border-transparent hover:border-blue-500/20">
-            <div className="bg-blue-100 w-16 h-16 rounded-[1.25rem] flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform">
-              <TrendingUp className="h-8 w-8 text-blue-600" />
+          <ScrollReveal className="h-full">
+            <div className="group bg-white p-10 rounded-[2.5rem] shadow-xl shadow-gray-100 hover:shadow-2xl hover:shadow-blue-100 transition-all duration-300 border-2 border-transparent hover:border-blue-500/20 h-full">
+              <div className="bg-blue-100 w-16 h-16 rounded-[1.25rem] flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                <TrendingUp className="h-8 w-8 text-blue-600" />
+              </div>
+              <h4 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">AI Holisti-Score™</h4>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Proprietary AI analyzes thousands of behavioral and financial data points for a complete 360° credit portrait.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-center text-gray-700 font-medium">
+                  <div className="bg-green-100 p-1 rounded-full mr-3"><CheckCircle className="h-4 w-4 text-green-600" /></div>
+                  Real-time cash flow
+                </li>
+                <li className="flex items-center text-gray-700 font-medium">
+                  <div className="bg-green-100 p-1 rounded-full mr-3"><CheckCircle className="h-4 w-4 text-green-600" /></div>
+                  Alternative insights
+                </li>
+              </ul>
             </div>
-            <h4 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">AI Holisti-Score™</h4>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              Proprietary AI analyzes thousands of behavioral and financial data points for a complete 360° credit portrait.
-            </p>
-            <ul className="space-y-3">
-              <li className="flex items-center text-gray-700 font-medium">
-                <div className="bg-green-100 p-1 rounded-full mr-3"><CheckCircle className="h-4 w-4 text-green-600" /></div>
-                Real-time cash flow
-              </li>
-              <li className="flex items-center text-gray-700 font-medium">
-                <div className="bg-green-100 p-1 rounded-full mr-3"><CheckCircle className="h-4 w-4 text-green-600" /></div>
-                Alternative insights
-              </li>
-            </ul>
-          </div>
+          </ScrollReveal>
 
           {/* Feature 2 */}
-          <div className="group bg-white p-10 rounded-[2.5rem] shadow-xl shadow-gray-100 hover:shadow-2xl hover:shadow-purple-100 transition-all duration-300 border-2 border-transparent hover:border-purple-500/20">
-            <div className="bg-purple-100 w-16 h-16 rounded-[1.25rem] flex items-center justify-center mb-8 group-hover:scale-110 group-hover:-rotate-3 transition-transform">
-              <Zap className="h-8 w-8 text-purple-600" />
+          <ScrollReveal className="h-full">
+            <div className="group bg-white p-10 rounded-[2.5rem] shadow-xl shadow-gray-100 hover:shadow-2xl hover:shadow-purple-100 transition-all duration-300 border-2 border-transparent hover:border-purple-500/20 h-full">
+              <div className="bg-purple-100 w-16 h-16 rounded-[1.25rem] flex items-center justify-center mb-8 group-hover:scale-110 group-hover:-rotate-3 transition-transform">
+                <Zap className="h-8 w-8 text-purple-600" />
+              </div>
+              <h4 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">Instant Approval</h4>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Don't wait for days. Our automated engine provides preliminary decisions in under 60 seconds.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-center text-gray-700 font-medium">
+                  <div className="bg-green-100 p-1 rounded-full mr-3"><CheckCircle className="h-4 w-4 text-green-600" /></div>
+                  24/7 Processing
+                </li>
+                <li className="flex items-center text-gray-700 font-medium">
+                  <div className="bg-green-100 p-1 rounded-full mr-3"><CheckCircle className="h-4 w-4 text-green-600" /></div>
+                  Paperless worklow
+                </li>
+              </ul>
             </div>
-            <h4 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">Instant Approval</h4>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              Don't wait for days. Our automated engine provides preliminary decisions in under 60 seconds.
-            </p>
-            <ul className="space-y-3">
-              <li className="flex items-center text-gray-700 font-medium">
-                <div className="bg-green-100 p-1 rounded-full mr-3"><CheckCircle className="h-4 w-4 text-green-600" /></div>
-                24/7 Processing
-              </li>
-              <li className="flex items-center text-gray-700 font-medium">
-                <div className="bg-green-100 p-1 rounded-full mr-3"><CheckCircle className="h-4 w-4 text-green-600" /></div>
-                Paperless worklow
-              </li>
-            </ul>
-          </div>
+          </ScrollReveal>
 
           {/* Feature 3 */}
-          <div className="group bg-white p-10 rounded-[2.5rem] shadow-xl shadow-gray-100 hover:shadow-2xl hover:shadow-indigo-100 transition-all duration-300 border-2 border-transparent hover:border-indigo-500/20">
-            <div className="bg-indigo-100 w-16 h-16 rounded-[1.25rem] flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform">
-              <Shield className="h-8 w-8 text-indigo-600" />
+          <ScrollReveal className="h-full">
+            <div className="group bg-white p-10 rounded-[2.5rem] shadow-xl shadow-gray-100 hover:shadow-2xl hover:shadow-indigo-100 transition-all duration-300 border-2 border-transparent hover:border-indigo-500/20 h-full">
+              <div className="bg-indigo-100 w-16 h-16 rounded-[1.25rem] flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                <Shield className="h-8 w-8 text-indigo-600" />
+              </div>
+              <h4 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">Cyber-Fortress</h4>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Your financial data is protected by high-grade encryption and privacy-focused AI logic.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-center text-gray-700 font-medium">
+                  <div className="bg-green-100 p-1 rounded-full mr-3"><CheckCircle className="h-4 w-4 text-green-600" /></div>
+                  End-to-end RSA
+                </li>
+                <li className="flex items-center text-gray-700 font-medium">
+                  <div className="bg-green-100 p-1 rounded-full mr-3"><CheckCircle className="h-4 w-4 text-green-600" /></div>
+                  Privacy-first AI
+                </li>
+              </ul>
             </div>
-            <h4 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">Cyber-Fortress</h4>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              Your financial data is protected by high-grade encryption and privacy-focused AI logic.
-            </p>
-            <ul className="space-y-3">
-              <li className="flex items-center text-gray-700 font-medium">
-                <div className="bg-green-100 p-1 rounded-full mr-3"><CheckCircle className="h-4 w-4 text-green-600" /></div>
-                End-to-end RSA
-              </li>
-              <li className="flex items-center text-gray-700 font-medium">
-                <div className="bg-green-100 p-1 rounded-full mr-3"><CheckCircle className="h-4 w-4 text-green-600" /></div>
-                Privacy-first AI
-              </li>
-            </ul>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
