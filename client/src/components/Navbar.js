@@ -3,13 +3,15 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import logo from '../assets/logo.png';
 
-const Navbar = () => {
+const Navbar = ({ className = "" }) => {
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
 
+    const isDark = className.includes('bg-transparent') || className.includes('text-white');
+
     return (
-        <header className="bg-white shadow-md sticky top-0 z-50">
+        <header className={`sticky top-0 z-50 transition-all duration-300 ${className || 'bg-white shadow-md'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
@@ -21,20 +23,20 @@ const Navbar = () => {
                             <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent leading-none">
                                 Kylax Bank
                             </h1>
-                            <p className="text-[10px] text-gray-500 uppercase tracking-widest mt-1 font-bold">AI Native Banking</p>
+                            <p className={`text-[10px] uppercase tracking-widest mt-1 font-bold ${isDark ? 'text-blue-200' : 'text-gray-500'}`}>AI Native Banking</p>
                         </div>
                     </Link>
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center space-x-8">
-                        <Link to="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</Link>
+                        <Link to="/" className={`${isDark ? 'text-white/80 hover:text-white' : 'text-gray-700 hover:text-blue-600'} font-medium transition-colors`}>Home</Link>
 
                         {/* Products Dropdown */}
                         <div className="relative group">
                             <button
                                 onMouseEnter={() => setActiveDropdown('products')}
                                 onMouseLeave={() => setActiveDropdown(null)}
-                                className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors py-8"
+                                className={`flex items-center space-x-1 ${isDark ? 'text-white/80 hover:text-white' : 'text-gray-700 hover:text-blue-600'} font-medium transition-colors py-8`}
                             >
                                 <span>Products</span>
                                 <ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === 'products' ? 'rotate-180' : ''}`} />
@@ -55,7 +57,7 @@ const Navbar = () => {
                             <button
                                 onMouseEnter={() => setActiveDropdown('company')}
                                 onMouseLeave={() => setActiveDropdown(null)}
-                                className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors py-8"
+                                className={`flex items-center space-x-1 ${isDark ? 'text-white/80 hover:text-white' : 'text-gray-700 hover:text-blue-600'} font-medium transition-colors py-8`}
                             >
                                 <span>Company</span>
                                 <ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === 'company' ? 'rotate-180' : ''}`} />
@@ -71,13 +73,13 @@ const Navbar = () => {
                             </div>
                         </div>
 
-                        <Link to="/legal/security" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Security</Link>
+                        <Link to="/legal/security" className={`${isDark ? 'text-white/80 hover:text-white' : 'text-gray-700 hover:text-blue-600'} font-medium transition-colors`}>Security</Link>
 
-                        <div className="h-6 w-px bg-gray-200 mx-2"></div>
+                        <div className={`h-6 w-px ${isDark ? 'bg-white/10' : 'bg-gray-200'} mx-2`}></div>
 
                         <button
                             onClick={() => navigate('/login')}
-                            className="text-sm text-gray-500 hover:text-gray-900 font-medium"
+                            className={`text-sm ${isDark ? 'text-blue-400 hover:text-blue-300' : 'text-gray-500 hover:text-gray-900'} font-medium`}
                         >
                             Log In
                         </button>

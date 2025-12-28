@@ -1,14 +1,16 @@
 import React from 'react';
 import InfoLayout from '../InfoLayout';
 import { Mail, Phone, MapPin, Users, Rocket, Heart } from 'lucide-react';
+import heroImage from '../../assets/ai_banking_hero_1766910006641.png';
 
 export const AboutUs = () => (
     <InfoLayout
         title="About Kylax Bank"
         subtitle="Our mission is to make credit accessible to everyone through intelligent technology."
+        backgroundImage={heroImage}
     >
         <div className="prose prose-blue max-w-none">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
+            <h2 className="text-4xl font-black text-gray-900 mb-8 tracking-tight">Our Story</h2>
             <p className="text-lg text-gray-600 mb-8 font-serif italic border-l-4 border-blue-600 pl-6 py-2">
                 "Kylax was founded on a simple realization: the traditional credit scoring system is a relics of the past.
                 It rewards those who already have access and punishes those who are just starting or facing unique life circumstances."
