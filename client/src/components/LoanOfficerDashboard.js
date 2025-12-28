@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { 
+import {
   ArrowLeft,
   Users,
   TrendingUp,
@@ -10,15 +10,12 @@ import {
   CheckCircle,
   Clock,
   Brain,
-  DollarSign,
-  Calendar,
-  Filter,
   Eye,
   ThumbsUp,
   ThumbsDown,
-  Sparkles,
   RefreshCw
 } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 const LoanOfficerDashboard = () => {
   const [applications, setApplications] = useState([]);
@@ -28,7 +25,7 @@ const LoanOfficerDashboard = () => {
 
   useEffect(() => {
     loadApplications();
-    
+
     // WebSocket connection for real-time updates
     const ws = new WebSocket(`ws://localhost:3001`);
     ws.onmessage = (event) => {
@@ -37,7 +34,7 @@ const LoanOfficerDashboard = () => {
         loadApplications();
       }
     };
-    
+
     return () => ws.close();
   }, []);
 
@@ -109,15 +106,15 @@ const LoanOfficerDashboard = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 kylax-gradient rounded-full flex items-center justify-center">
-                <Sparkles className="w-6 h-6 text-white" />
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center p-1 border shadow-sm">
+                <img src={logo} alt="Kylax Bank Logo" className="w-8 h-8 object-contain" />
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">Kylax Bank</h1>
                 <p className="text-sm text-gray-600">Loan Officer Dashboard</p>
               </div>
             </div>
-            <Link 
+            <Link
               to="/"
               className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors"
             >
@@ -143,7 +140,7 @@ const LoanOfficerDashboard = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="bg-white p-6 rounded-xl shadow-sm">
                 <div className="flex items-center space-x-3">
                   <Clock className="w-8 h-8 text-yellow-600" />
@@ -155,7 +152,7 @@ const LoanOfficerDashboard = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="bg-white p-6 rounded-xl shadow-sm">
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-8 h-8 text-green-600" />
@@ -167,7 +164,7 @@ const LoanOfficerDashboard = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="bg-white p-6 rounded-xl shadow-sm">
                 <div className="flex items-center space-x-3">
                   <AlertTriangle className="w-8 h-8 text-red-600" />
@@ -194,11 +191,10 @@ const LoanOfficerDashboard = () => {
                   <button
                     key={tab.key}
                     onClick={() => setFilter(tab.key)}
-                    className={`flex-1 py-2 px-4 rounded-lg font-medium transition-colors ${
-                      filter === tab.key
-                        ? 'bg-blue-600 text-white shadow'
-                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-                    }`}
+                    className={`flex-1 py-2 px-4 rounded-lg font-medium transition-colors ${filter === tab.key
+                      ? 'bg-blue-600 text-white shadow'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                      }`}
                   >
                     {tab.label} ({tab.count})
                   </button>
@@ -332,7 +328,7 @@ const LoanOfficerDashboard = () => {
                       <Brain className="w-5 h-5 text-purple-600" />
                       <span>AI Holisti-Score™ Breakdown</span>
                     </h4>
-                    
+
                     <div className="text-center mb-4">
                       <div className="text-3xl font-bold text-purple-600 mb-1">
                         {selectedApplication.aiScore.score}
@@ -376,9 +372,8 @@ const LoanOfficerDashboard = () => {
                       <div className="pt-4 border-t border-gray-200">
                         <div className="flex items-center justify-between mb-3">
                           <span className="text-sm font-medium text-gray-900">AI Recommendation:</span>
-                          <span className={`inline-flex items-center space-x-1 text-sm font-semibold ${
-                            selectedApplication.aiScore.recommendation === 'Approve' ? 'text-green-600' : 'text-red-600'
-                          }`}>
+                          <span className={`inline-flex items-center space-x-1 text-sm font-semibold ${selectedApplication.aiScore.recommendation === 'Approve' ? 'text-green-600' : 'text-red-600'
+                            }`}>
                             {selectedApplication.aiScore.recommendation === 'Approve' ? (
                               <ThumbsUp className="w-4 h-4" />
                             ) : (
@@ -402,7 +397,7 @@ const LoanOfficerDashboard = () => {
                       <CheckCircle className="w-4 h-4" />
                       <span>Approve</span>
                     </button>
-                    
+
                     <button
                       onClick={() => updateApplicationStatus(selectedApplication.id, { status: 'denied' })}
                       className="w-full bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-colors flex items-center justify-center space-x-2"
@@ -410,7 +405,7 @@ const LoanOfficerDashboard = () => {
                       <ThumbsDown className="w-4 h-4" />
                       <span>Deny</span>
                     </button>
-                    
+
                     <button className="w-full border border-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
                       Flag for Follow-up
                     </button>

@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { 
+import {
   ArrowLeft,
   ArrowRight,
   Upload,
   Link as LinkIcon,
   Shield,
   CheckCircle,
-  Sparkles,
-  DollarSign,
   User,
-  FileText
+  DollarSign
 } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 const LoanApplication = () => {
   const navigate = useNavigate();
@@ -26,18 +25,18 @@ const LoanApplication = () => {
     phone: '',
     ssn: '',
     dateOfBirth: '',
-    
+
     // Loan Info
     loanAmount: '',
     loanPurpose: '',
-    
+
     // Income & Employment
     employmentStatus: '',
     employer: '',
     jobTitle: '',
     monthlyIncome: '',
     employmentLength: '',
-    
+
     // Additional Info
     monthlyRent: '',
     bankConnected: false
@@ -103,12 +102,12 @@ const LoanApplication = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <Link to="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 kylax-gradient rounded-full flex items-center justify-center">
-                <Sparkles className="w-6 h-6 text-white" />
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center p-1 border shadow-sm">
+                <img src={logo} alt="Kylax Bank Logo" className="w-8 h-8 object-contain" />
               </div>
-              <span className="text-2xl font-bold text-gray-900">Kylax Bank</span>
+              <span className="text-2xl font-bold text-gray-900 tracking-tight">Kylax Bank</span>
             </Link>
-            <Link 
+            <Link
               to="/"
               className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors"
             >
@@ -127,11 +126,10 @@ const LoanApplication = () => {
               const Icon = step.icon;
               return (
                 <div key={step.number} className="flex items-center">
-                  <div className={`flex items-center justify-center w-12 h-12 rounded-full border-2 ${
-                    currentStep >= step.number
-                      ? 'bg-blue-600 border-blue-600 text-white'
-                      : 'bg-white border-gray-300 text-gray-400'
-                  }`}>
+                  <div className={`flex items-center justify-center w-12 h-12 rounded-full border-2 ${currentStep >= step.number
+                    ? 'bg-blue-600 border-blue-600 text-white'
+                    : 'bg-white border-gray-300 text-gray-400'
+                    }`}>
                     <Icon className="w-6 h-6" />
                   </div>
                   <div className="ml-4 hidden sm:block">
@@ -139,9 +137,8 @@ const LoanApplication = () => {
                     <p className="text-sm text-gray-500">{step.title}</p>
                   </div>
                   {step.number < steps.length && (
-                    <div className={`hidden sm:block w-24 h-1 mx-4 ${
-                      currentStep > step.number ? 'bg-blue-600' : 'bg-gray-300'
-                    }`} />
+                    <div className={`hidden sm:block w-24 h-1 mx-4 ${currentStep > step.number ? 'bg-blue-600' : 'bg-gray-300'
+                      }`} />
                   )}
                 </div>
               );
@@ -175,7 +172,7 @@ const LoanApplication = () => {
                     required
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Last Name *
@@ -367,8 +364,8 @@ const LoanApplication = () => {
                 Get a Fairer Assessment by Connecting Your Bank Account
               </h2>
               <p className="text-gray-600 mb-8">
-                By securely linking your account, our AI can see your real-time financial health, 
-                like consistent rent payments and stable cash flow, giving you credit for financial 
+                By securely linking your account, our AI can see your real-time financial health,
+                like consistent rent payments and stable cash flow, giving you credit for financial
                 habits that traditional scores miss.
               </p>
 
@@ -382,11 +379,11 @@ const LoanApplication = () => {
                       Connect Your Bank Account
                     </h3>
                     <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                      We use bank-level security to safely connect to your account. 
-                      This helps us verify your income, see your payment history, 
+                      We use bank-level security to safely connect to your account.
+                      This helps us verify your income, see your payment history,
                       and give you credit for responsible financial behavior.
                     </p>
-                    
+
                     <div className="grid md:grid-cols-3 gap-4 mb-8">
                       <div className="flex items-center space-x-2">
                         <Shield className="w-5 h-5 text-green-600" />
@@ -409,9 +406,9 @@ const LoanApplication = () => {
                     >
                       {loading ? 'Connecting...' : 'Connect Bank Account'}
                     </button>
-                    
+
                     <p className="text-sm text-gray-500 mt-4">
-                      You can also choose to skip this step, but connecting your bank account 
+                      You can also choose to skip this step, but connecting your bank account
                       significantly improves your chances of approval.
                     </p>
                   </div>
@@ -423,7 +420,7 @@ const LoanApplication = () => {
                     Bank Account Connected!
                   </h3>
                   <p className="text-gray-600">
-                    Your account has been securely connected. This will help us provide 
+                    Your account has been securely connected. This will help us provide
                     a more accurate assessment of your creditworthiness.
                   </p>
                 </div>

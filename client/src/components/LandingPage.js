@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Building2, TrendingUp, Shield, Zap, CheckCircle, ArrowRight } from 'lucide-react';
+import { TrendingUp, Shield, Zap, CheckCircle, ArrowRight } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -12,8 +13,8 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
-                <Building2 className="h-8 w-8 text-white" />
+              <div className="bg-white p-1 rounded-lg">
+                <img src={logo} alt="Kylax Bank Logo" className="h-10 w-10 object-contain" />
               </div>
               <div>
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -39,7 +40,7 @@ const LandingPage = () => {
             <Zap className="h-4 w-4" />
             <span>Powered by AI Holisti-Score™</span>
           </div>
-          
+
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             Fairer, Faster
             <br />
@@ -47,9 +48,9 @@ const LandingPage = () => {
               Loan Decisions
             </span>
           </h2>
-          
+
           <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
-            Experience revolutionary AI-powered credit assessment that combines traditional credit data 
+            Experience revolutionary AI-powered credit assessment that combines traditional credit data
             with alternative financial insights for more accurate, transparent loan decisions.
           </p>
 
@@ -92,7 +93,7 @@ const LandingPage = () => {
             </div>
             <h4 className="text-xl font-bold text-gray-900 mb-3">AI Holisti-Score™</h4>
             <p className="text-gray-600 mb-4">
-              Our proprietary AI analyzes thousands of data points, combining traditional credit data 
+              Our proprietary AI analyzes thousands of data points, combining traditional credit data
               with alternative financial insights for a complete picture.
             </p>
             <ul className="space-y-2">
@@ -118,7 +119,7 @@ const LandingPage = () => {
             </div>
             <h4 className="text-xl font-bold text-gray-900 mb-3">Real-Time Processing</h4>
             <p className="text-gray-600 mb-4">
-              Get instant decisions with live status tracking. Our platform processes applications 
+              Get instant decisions with live status tracking. Our platform processes applications
               in minutes, not days.
             </p>
             <ul className="space-y-2">
@@ -144,7 +145,7 @@ const LandingPage = () => {
             </div>
             <h4 className="text-xl font-bold text-gray-900 mb-3">Secure & Transparent</h4>
             <p className="text-gray-600 mb-4">
-              Bank-level security with complete transparency. Understand exactly how your 
+              Bank-level security with complete transparency. Understand exactly how your
               score is calculated and what factors influence your decision.
             </p>
             <ul className="space-y-2">
@@ -190,10 +191,10 @@ const LandingPage = () => {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-1.5 rounded">
-                  <Building2 className="h-5 w-5 text-white" />
+                <div className="bg-white p-1 rounded shadow-sm">
+                  <img src={logo} alt="Kylax Bank Logo" className="h-6 w-6 object-contain" />
                 </div>
-                <span className="text-white font-bold">Kylax Bank</span>
+                <span className="text-white font-bold text-xl tracking-tight">Kylax Bank</span>
               </div>
               <p className="text-sm">
                 Revolutionizing lending with AI-powered credit assessments.
