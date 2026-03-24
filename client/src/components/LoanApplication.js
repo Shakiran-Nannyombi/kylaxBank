@@ -113,7 +113,7 @@ const LoanApplication = () => {
         <div className="absolute inset-0 opacity-[0.4]" style={{ backgroundImage: 'radial-gradient(#cbd5e1 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
       </div>
 
-      <Navbar className="bg-transparent border-b border-gray-200" />
+      <Navbar />
 
       <main className="relative z-10 flex-grow py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">

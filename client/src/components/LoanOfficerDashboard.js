@@ -15,6 +15,7 @@ import {
   RefreshCw
 } from 'lucide-react';
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 const LoanOfficerDashboard = () => {
   const [applications, setApplications] = useState([]);
@@ -414,6 +415,7 @@ const LoanOfficerDashboard = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

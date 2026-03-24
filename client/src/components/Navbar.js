@@ -11,7 +11,7 @@ const Navbar = ({ className = "", isDark: customIsDark }) => {
     const isDark = customIsDark !== undefined ? customIsDark : (className.includes('bg-transparent') || className.includes('text-white'));
 
     return (
-        <header className={`sticky top-0 z-50 transition-all duration-300 ${className || 'bg-white shadow-md'}`}>
+        <header className={`sticky top-0 z-50 transition-all duration-300 backdrop-blur-xl ${className ? className : 'bg-white/80 border-b border-gray-200/50 shadow-sm'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
